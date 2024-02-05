@@ -17,8 +17,12 @@ class HBNBCommand(cmd.Cmd):
 	file = None
 	
 	def do_quit(Self, arg):
-		"""quit cmd"""
-		print("quit cmd")
+		"""Quit command to exit the program"""
+		return True
+	def do_EOF(self, arg):
+		"""end of line command"""
+		print('\n')
+		return True
 	def do_create(self,arg):
 		"""create new user"""
 		print("new user created")
