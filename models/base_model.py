@@ -2,16 +2,16 @@
 """this module represent base class"""
 import uuid
 import datetime
+import json
+#import storage
+
 class BaseModel:
 	"""class base model"""
 	def __init__(self, *args, **kwargs):
-	#def __init__(self):
 		"""init function"""
 		self.id=str(uuid.uuid4()) #uniq id
 		self.created_at=datetime.datetime.now()#time object created
 		self.updated_at=datetime.datetime.now()#time object update
-		#self.name=name
-		#self.my_number=my_number
 	
 	def __str__(self):
 		"""return class object"""
