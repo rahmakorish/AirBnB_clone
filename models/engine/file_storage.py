@@ -8,7 +8,7 @@ import datetime
 
 class FileStorage:
     """class to serialize and deserialize"""
-        __file_path= "./file.json"
+        __file_path= "file.json"
         __objects={}
 
     def all(self):
@@ -17,14 +17,12 @@ class FileStorage:
 
     def new(self, obj): 
         """sets in __objects the obj with key <obj class name>.id"""
-        #objecty = 
-        pass
+        self.__objects[f"{obj.__class__.__name__}.{obj.id}"]=objecty 
 
     def save(self): 
         """serializes __objects to the JSON file (path: __file_path)"""
         newjson = json.dumps(self.__objects)
         print(newjson)
-        #pass
 
     def reload(self): 
         """deserializes the JSON file to __objects"""
