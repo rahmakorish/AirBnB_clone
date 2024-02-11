@@ -12,21 +12,20 @@ import cmd
 class HBNBCommand(cmd.Cmd):
     """entry point for cmd"""
     prompt = '(hbnh) '
-    """file = None"""
 
-    def do_quit(Self, line):
+    def do_quit(Self, args):
         """Quit command to exit the program\n"""
         return True
 
-    def do_EOF(self, line):
-        "Quit command to exit the program\n"
+    def do_EOF(self, args):
+        """Quit command to exit the program\n"""
         return True
 
     def emptyline(self):
         """empty line"""
         pass
 
-    def do_create(self, arg):
+    def do_create(self, args):
         """create new user"""
         print("new user created")
 
