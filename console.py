@@ -15,21 +15,12 @@ class HBNBCommand(cmd.Cmd):
     """file = None"""
 
     def do_quit(Self, line):
-        """Quit command"""
+        """Quit command to exit the program\n"""
         return True
 
     def do_EOF(self, line):
-        """end of line command"""
-        print('\n')
+        "Quit command to exit the program\n"
         return True
-
-    def help_quit(self):
-        """help quit"""
-        print("Quit command to exit the program\n")
-
-    def help_EOF(self):
-        """EOF"""
-        print("End Of Line\n")
 
     def emptyline(self):
         """empty line"""
