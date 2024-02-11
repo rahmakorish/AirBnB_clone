@@ -33,4 +33,3 @@ class FileStorage:
         """ with open(self.__file_path, 'r') as jfile:
             jdata = json.load(jfile)"""
         pass
-
