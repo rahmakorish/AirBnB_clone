@@ -10,6 +10,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+import os
 
 
 class FileStorage:
@@ -23,7 +24,7 @@ class FileStorage:
 
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
-        self.__objects[obj.__class__.__name__+'.'+obj.id] = objecty
+        self.__objects[obj.__class__.__name__+'.'+obj.id] = obj
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
@@ -35,6 +36,11 @@ class FileStorage:
 
     def reload(self):
         """deserializes the JSON file to __objects"""
-        """ with open(self.__file_path, 'r') as jfile:
-            jdata = json.load(jfile)"""
-        pass
+        try:
+            with open(self.__file_path, 'r') as jfile:
+                jdata = json.load(jfile)
+                for k, v in jdata.items():
+                    class_name, obj_id = k.split('.')
+                    self.__objects[k] = eval(class_name)(**v)
+        except FileNotFoundError:
+            pass
