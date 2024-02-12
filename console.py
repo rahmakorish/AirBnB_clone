@@ -27,7 +27,7 @@ from models.user import User
 class HBNBCommand(cmd.Cmd):
     """entry point for cmd"""
     prompt = '(hbnh) '
-    cls = ["BaseModel", "User"]
+    cls = ["BaseModel", "User", "City", "State", "Place", "Amenity", "Review"]
 
     def do_quit(self, line):
         """Quit command to exit the program\n"""
@@ -43,22 +43,20 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, line):
         """create new user"""
-        cls = ["BaseModel", "User"]
         if not line:
             print("** class name missing **")
-        elif line not in cls:
+        elif line not in self.cls:
             print("** class doesn't exist **")
         else:
             print(f"{line}")
 
     def do_show(self, line):
         """prints string repr of instance"""
-        cls = ["BaseModel", "User"]
         try:
             clas, clas_id = line.split()
             if not line:
                 print("** class name missing **")
-            elif clas not in cls:
+            elif clas not in self.cls:
                 print("** class doesn't exist **")
             else:
                 print(f"{clas}")
@@ -67,12 +65,11 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, line):
         """Deletes an instance based on the class"""
-        cls = ["BaseModel", "User"]
         try:
             clas, clas_id = line.split()
             if not line:
                 print("** class name missing **")
-            elif clas not in cls:
+            elif clas not in self.cls:
                 print("** class doesn't exist **")
             else:
                 print(f"{clas}")
@@ -80,19 +77,17 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
 
     def do_all(self, line):
-        cls = ["BaseModel", "User"]
-        if line not in cls:
+        if line not in self.cls:
             print("** class doesn't exist **")
         print(f"{line}")
 
     def do_update(self, line):
         """updates an instance"""
-        cls = ["BaseModel", "User"]
         try:
             clas, clas_id, clas_attr, attr_value = line.split()
             if not line:
                 print("** class name missing **")
-            elif clas not in cls:
+            elif clas not in self.cls:
                 print("** class doesn't exist **")
             else:
                 print(f"{clas}")
