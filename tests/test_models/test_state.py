@@ -5,12 +5,15 @@ from models.base_model import BaseModel
 from models.state import State
 
 
-class Test_state(unittest.TestCase):
+class TestState(unittest.TestCase):
     """testing base model"""
     def test_init(self):
         new_state = State()
         new_state.name = "Alexandria"
         self.assertEqual(new_state.name, "Alexandria")
+        newstate = State()
+        newstate.name = None
+        self.assertEqual(newstate.name, None)
 
 
 if __name__ == "__main__":
