@@ -5,8 +5,11 @@ commands:
 -show-destroy
 -all-update
 """
+
+
 import sys
 import cmd
+
 
 
 class HBNBCommand(cmd.Cmd):
