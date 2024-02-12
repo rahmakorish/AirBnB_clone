@@ -12,6 +12,11 @@ class TestAmenity(unittest.TestCase):
         new.name = "hello"
         self.assertEqual(new.name, "hello")
 
+    def test_None(self):
+        newA = Amenity()
+        newA.name = None
+        self.assertIsNone(newA.name)
+
 
 if __name__ == "__main__":
     unittest.main()

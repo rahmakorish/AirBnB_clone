@@ -11,9 +11,11 @@ class TestState(unittest.TestCase):
         new_state = State()
         new_state.name = "Alexandria"
         self.assertEqual(new_state.name, "Alexandria")
+
+    def test_None(self):
         newstate = State()
         newstate.name = None
-        self.assertEqual(newstate.name, None)
+        self.assertIsNone(newstate.name)
 
 
 if __name__ == "__main__":
