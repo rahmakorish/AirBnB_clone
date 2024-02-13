@@ -77,6 +77,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
 
     def do_all(self, line):
+        """show all"""
         if line not in self.cls:
             print("** class doesn't exist **")
         print(f"{line}")
